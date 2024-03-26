@@ -10,5 +10,5 @@ before_install:
   - export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 before_script:
   - npm install -g grunt-cli@0.1.1
-dist: trusty
+dist: precise
 sudo: required
