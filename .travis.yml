@@ -3,12 +3,13 @@ env:
   - NODE_TLS_REJECT_UNAUTHORIZED="0"
 node_js:
   - "0.8"
-before_script:
+before_install:
   - npm set strict-ssl false
   - sudo sed -re 's#^(mozilla/DST_Root_CA_X3.crt)$#!\1#' -i /etc/ca-certificates.conf
   - sudo update-ca-certificates
   - export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
   - sudo apt-get update && sudo apt-get install apt-transport-https ca-certificates -y && sudo update-ca-certificates
+before_script:
   - npm install -g grunt-cli@0.1.1
 dist: trusty
 sudo: required
